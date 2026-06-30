@@ -1,0 +1,22 @@
+{
+  "overview": "A retro Pac-Man arcade game with pixel-perfect visuals, original ghost AI, multiple cycling mazes, sound effects, high-score persistence, and both keyboard and mobile controls.",
+  "features": [
+    "Classic maze with neon blue walls and dot pellets",
+    "Four ghosts with original arcade targeting AI and scatter/chase modes",
+    "Power pellets that make ghosts vulnerable for bonus points",
+    "3-4 distinct cycling mazes with progressive difficulty",
+    "Sound effects: chomp, power pellet, ghost eat, death, and level intro",
+    "High-score persistence across browser sessions",
+    "Keyboard arrow keys and WASD controls",
+    "Mobile touch and swipe controls with on-screen directional pad",
+    "Start, game over, and level transition screens with HUD"
+  ],
+  "category": "game",
+  "tags": [
+    "game",
+    "arcade",
+    "retro",
+    "pacman"
+  ],
+  "last_updated": "2026-06-30T21:40:28.257Z"
+}

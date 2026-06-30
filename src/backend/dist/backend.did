@@ -1,0 +1,51 @@
+type UserRole = 
+ variant {
+   admin;
+   guest;
+   user;
+ };
+type Result = 
+ variant {
+   err: Error;
+   ok;
+ };
+type Error = 
+ variant {
+   AmbiguousAttribute: record {
+                         field: text;
+                         sources: vec text;
+                       };
+   FrontendOriginMismatch: record {
+                             expected: vec text;
+                             got: text;
+                           };
+   FrontendOriginsNotConfigured;
+   MalformedCandid;
+   MissingField: text;
+   MixedSsoSources: record {
+                      otherKeys: vec text;
+                      ssoKeys: vec text;
+                    };
+   NoAttributes;
+   Stale: record {ageNs: nat;};
+   UnknownNonce;
+   UntrustedSsoSource: record {domain: text;};
+ };
+service : {
+  __accessControlState: () -> (reserved) query;
+  __highScore: () -> (reserved) query;
+  _initialize_access_control: () -> ();
+  _internet_identity_sign_in_finish: () -> (Result);
+  _internet_identity_sign_in_start: () -> (blob);
+  assignCallerUserRole: (user: principal, role: UserRole) -> ();
+  getCallerUserRole: () -> (UserRole) query;
+  getHighScore: () -> (nat) query;
+  getHighScoreRecord: () ->
+   (record {
+      playerName: text;
+      score: nat;
+      updatedAt: int;
+    }) query;
+  isCallerAdmin: () -> (bool) query;
+  submitScore: (score: nat, playerName: text) -> (nat);
+}
